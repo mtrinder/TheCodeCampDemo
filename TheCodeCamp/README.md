@@ -16,3 +16,6 @@ dotnet restore
 
 dotnet ef migrations add InitialCreate
 dotnet ef database update
+
+git remote add origin https://github.com/mtrinder/TheCodeCampDemo.git
+git push -u origin master
