@@ -28,10 +28,8 @@ namespace TheCodeCamp.Data
                 .HasForeignKey<Location>(c => c.CampId);
 
             modelBuilder.Entity<Talk>().HasKey(c => c.TalkId);
-            modelBuilder.Entity<Talk>()
-                .HasOne(a => a.Speaker)
-                .WithOne(a => a.Talk)
-                .HasForeignKey<Speaker>(c => c.TalkId);
+
+            modelBuilder.Entity<TalkSpeakers>().HasKey(c => new { c.TalkId, c.SpeakerId });
 
             modelBuilder.Entity<Speaker>().HasKey(c => c.SpeakerId);
             modelBuilder.Entity<Location>().HasKey(c => c.LocationId);
@@ -105,6 +103,30 @@ namespace TheCodeCamp.Data
                     CompanyUrl = "http://wilderminds.com",
                     GitHub = "resawildermuth",
                     Twitter = "resawildermuth"
+                }
+            });
+
+            modelBuilder.Entity<TalkSpeakers>().HasData(new[]
+            {
+                new
+                {
+                    TalkId = 1,
+                    SpeakerId = 1,
+                },
+                new
+                {
+                    TalkId = 2,
+                    SpeakerId = 2,
+                },
+                new
+                {
+                    TalkId = 1,
+                    SpeakerId = 2,
+                },
+                new
+                {
+                    TalkId = 2,
+                    SpeakerId = 1,
                 }
             });
         }

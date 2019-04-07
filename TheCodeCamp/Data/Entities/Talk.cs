@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace TheCodeCamp.Data
 {
@@ -10,8 +11,7 @@ namespace TheCodeCamp.Data
         public string Abstract { get; set; }
         public int Level { get; set; }
 
-        public int SpeakerId { get; set; }
-        public Speaker Speaker { get; set; }
+        public ICollection<TalkSpeakers> TalkSpeakers { get; set; }
 
         public Camp Camp { get; set; }
     }

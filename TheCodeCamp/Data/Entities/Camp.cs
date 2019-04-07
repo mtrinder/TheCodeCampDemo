@@ -16,6 +16,7 @@ namespace TheCodeCamp.Data
 
         public int LocationId { get; set; }
         public Location Location { get; set; }
+
         public ICollection<Talk> Talks { get; set; }
     }
 }

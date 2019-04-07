@@ -36,11 +36,11 @@ namespace TheCodeCamp
             Mapper.Initialize(cfg => cfg.AddProfile<MappingProfile>());
             services.AddAutoMapper();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            services.AddMvc().AddJsonOptions(options => {
-                options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
-            });
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+                             .AddJsonOptions(options => {
+                                 options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+                             });
 
             var cs = Configuration.GetConnectionString("CampsDatabase");
             services.AddDbContext<CampContext>(options => options.UseSqlServer(cs));

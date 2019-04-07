@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
@@ -59,7 +58,7 @@ namespace TheCodeCamp.Data
       if (includeTalks)
       {
         query = query
-          .Include(c => c.Talks).ThenInclude(t => t.Speaker);
+          .Include(c => c.Talks).ThenInclude(t => t.TalkSpeakers).ThenInclude(s => s.Speaker);
       }
 
       // Order It
@@ -78,7 +77,7 @@ namespace TheCodeCamp.Data
       {
         query = query
           .Include(c => c.Talks)
-          .ThenInclude(t => t.Speaker);
+          .ThenInclude(t => t.TalkSpeakers).ThenInclude(s => s.Speaker);
       }
 
       // Order It
@@ -94,7 +93,7 @@ namespace TheCodeCamp.Data
 
       if (includeTalks)
       {
-        query = query.Include(c => c.Talks).ThenInclude(t => t.Speaker);
+        query = query.Include(c => c.Talks).ThenInclude(t => t.TalkSpeakers).ThenInclude(s => s.Speaker);
       }
 
       // Query It
@@ -110,7 +109,7 @@ namespace TheCodeCamp.Data
       if (includeSpeakers)
       {
         query = query
-          .Include(t => t.Speaker);
+          .Include(t => t.TalkSpeakers).ThenInclude(s => s.Speaker);
       }
 
       // Add Query
@@ -128,7 +127,7 @@ namespace TheCodeCamp.Data
       if (includeSpeakers)
       {
         query = query
-          .Include(t => t.Speaker);
+          .Include(t => t.TalkSpeakers).ThenInclude(s => s.Speaker);
       }
 
       // Add Query
@@ -140,14 +139,21 @@ namespace TheCodeCamp.Data
 
     public async Task<Speaker[]> GetSpeakersByMonikerAsync(string moniker)
     {
-      IQueryable<Speaker> query = _context.Talks
-        .Where(t => t.Camp.Moniker == moniker)
-        .Select(t => t.Speaker)
-        .Where(s => s != null)
-        .OrderBy(s => s.LastName)
-        .Distinct();
+        throw new NotImplementedException();
 
-      return await query.ToArrayAsync();
+    //    IQueryable<ICollection<TalkSpeakers>> query = _context.Talks
+    //      .Where(t => t.Camp.Moniker == moniker)
+    //      .Select(t => t.TalkSpeakers);
+
+    //    var result = await query.ToArrayAsync();
+
+    //    result.ToList().SelectMany()
+
+    //    //.Where(s => s != null)
+    //    //.OrderBy(s => s. .LastName)
+    //    //.Distinct();
+
+    //        //return await query.ToArrayAsync();
     }
 
     public async Task<Speaker[]> GetAllSpeakersAsync()

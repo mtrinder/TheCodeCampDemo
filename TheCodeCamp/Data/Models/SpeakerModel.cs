@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TheCodeCamp.Data.Models
 {
     public class SpeakerModel
@@ -11,5 +13,7 @@ namespace TheCodeCamp.Data.Models
         public string BlogUrl { get; set; }
         public string Twitter { get; set; }
         public string GitHub { get; set; }
+
+        public ICollection<TalkSpeakerModel> TalkSpeakers { get; set; }
     }
 }

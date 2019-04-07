@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TheCodeCamp.Data;
 
 namespace TheCodeCamp.Migrations
 {
     [DbContext(typeof(CampContext))]
-    partial class CampContextModelSnapshot : ModelSnapshot
+    [Migration("20190407214157_SpeakerTalks")]
+    partial class SpeakerTalks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -197,28 +199,6 @@ namespace TheCodeCamp.Migrations
                     b.HasIndex("SpeakerId");
 
                     b.ToTable("TalkSpeakers");
-
-                    b.HasData(
-                        new
-                        {
-                            TalkId = 1,
-                            SpeakerId = 1
-                        },
-                        new
-                        {
-                            TalkId = 2,
-                            SpeakerId = 2
-                        },
-                        new
-                        {
-                            TalkId = 1,
-                            SpeakerId = 2
-                        },
-                        new
-                        {
-                            TalkId = 2,
-                            SpeakerId = 1
-                        });
                 });
 
             modelBuilder.Entity("TheCodeCamp.Data.Location", b =>
