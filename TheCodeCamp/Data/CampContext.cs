@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Console;
 
 namespace TheCodeCamp.Data
 {
@@ -10,6 +12,10 @@ namespace TheCodeCamp.Data
         public DbSet<Talk> Talks { get; set; }
         public DbSet<Speaker> Speakers { get; set; }
 
+        public static readonly LoggerFactory MyConsoleLoggerFactory
+            = new LoggerFactory(new[] { new ConsoleLoggerProvider((category, level)
+                => category == DbLoggerCategory.Database.Command.Name && level == LogLevel.Information, true) });
+
         public CampContext(DbContextOptions<CampContext> options) : base(options)
         {
 
@@ -17,6 +23,7 @@ namespace TheCodeCamp.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+            optionsBuilder.UseLoggerFactory(MyConsoleLoggerFactory);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

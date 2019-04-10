@@ -81,6 +81,7 @@ namespace TheCodeCamp.Controllers
         }
 
         [Route("")]
+        [HttpPost]
         public async Task<ActionResult> Post(CampModel model)
         {
             try
@@ -115,6 +116,7 @@ namespace TheCodeCamp.Controllers
         }
 
         [Route("{moniker}")]
+        [HttpPut]
         public async Task<ActionResult> Put(string moniker, CampModel model)
         {
             try
@@ -146,7 +148,7 @@ namespace TheCodeCamp.Controllers
 
         [Route("{moniker}")]
         [HttpDelete]
-        public async Task<ActionResult> Delete(string moniker)
+        public async Task<IActionResult> Delete(string moniker)
         {
             try
             {

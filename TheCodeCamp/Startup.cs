@@ -16,6 +16,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Swashbuckle.AspNetCore.Swagger;
 using TheCodeCamp.Data;
 using TheCodeCamp.Mappings;
 
@@ -42,6 +43,11 @@ namespace TheCodeCamp
                                  options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
                              });
 
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" });
+            });
+
             var cs = Configuration.GetConnectionString("CampsDatabase");
             services.AddDbContext<CampContext>(options => options.UseSqlServer(cs));
 
@@ -58,6 +64,8 @@ namespace TheCodeCamp
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseSwagger();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -67,6 +75,12 @@ namespace TheCodeCamp
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseHttpsRedirection();
             app.UseMvc(routes =>

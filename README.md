@@ -12,6 +12,8 @@ dotnet add package Microsoft.Extensions.DependencyInjection
 dotnet add package Autofac.Extensions.DependencyInjection (https://autofaccn.readthedocs.io/en/latest/integration/netcore.html)
 dotnet add package AutoMapper --version 8.0.0
 dotnet add package AutoMapper.Extensions.Microsoft.DependencyInjection --version 6.0.0
+dotnet add package Microsoft.Extensions.Logging.Console
+dotnet add package Swashbuckle.AspNetCore
 dotnet restore
 
 dotnet ef migrations add InitialCreate
