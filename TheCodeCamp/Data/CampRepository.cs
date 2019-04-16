@@ -50,6 +50,12 @@ namespace TheCodeCamp.Data
       return (await _context.SaveChangesAsync()) > 0;
     }
 
+    public bool SaveChanges()
+    {
+        // Only return success if at least one row was changed
+        return _context.SaveChanges() > 0;
+    }
+
     public async Task<Camp[]> GetAllCampsByEventDate(DateTime dateTime, bool includeTalks = false)
     {
       IQueryable<Camp> query = _context.Camps

@@ -81,7 +81,7 @@ namespace TheCodeCamp.Controllers
         }
 
         [Route("")]
-        [HttpPost]
+        [HttpPost()]
         public async Task<ActionResult> Post(CampModel model)
         {
             try

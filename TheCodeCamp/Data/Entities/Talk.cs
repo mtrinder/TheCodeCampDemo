@@ -13,6 +13,6 @@ namespace TheCodeCamp.Data
 
         public ICollection<TalkSpeakers> TalkSpeakers { get; set; }
 
-        public Camp Camp { get; set; }
+        public virtual Camp Camp { get; set; }
     }
 }

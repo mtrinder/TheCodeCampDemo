@@ -16,6 +16,6 @@ namespace TheCodeCamp.Data
         public string Country { get; set; }
 
         public int CampId { get; set; }
-        public Camp Camp { get; set; }
+        public virtual Camp Camp { get; set; }
     }
 }

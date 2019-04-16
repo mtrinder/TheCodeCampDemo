@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheCodeCamp", "TheCodeCamp\TheCodeCamp.csproj", "{39BD6B15-2A5C-4015-AC6C-EBBF678CBDFA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{D018D798-58D6-427A-BBAA-C2AD0CB2DC83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnitTests", "xUnitTests\xUnitTests.csproj", "{48B729EE-C96C-4C72-9649-6C1DC10FF1B6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,5 +17,13 @@ Global
 		{39BD6B15-2A5C-4015-AC6C-EBBF678CBDFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{39BD6B15-2A5C-4015-AC6C-EBBF678CBDFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{39BD6B15-2A5C-4015-AC6C-EBBF678CBDFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D018D798-58D6-427A-BBAA-C2AD0CB2DC83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D018D798-58D6-427A-BBAA-C2AD0CB2DC83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D018D798-58D6-427A-BBAA-C2AD0CB2DC83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D018D798-58D6-427A-BBAA-C2AD0CB2DC83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48B729EE-C96C-4C72-9649-6C1DC10FF1B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48B729EE-C96C-4C72-9649-6C1DC10FF1B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48B729EE-C96C-4C72-9649-6C1DC10FF1B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48B729EE-C96C-4C72-9649-6C1DC10FF1B6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

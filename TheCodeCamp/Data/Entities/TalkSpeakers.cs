@@ -3,9 +3,9 @@
     public class TalkSpeakers
     {
         public int TalkId { get; set; }
-        public Talk Talk { get; set; }
+        public virtual Talk Talk { get; set; }
 
         public int SpeakerId { get; set; }
-        public Speaker Speaker { get; set; }
+        public virtual Speaker Speaker { get; set; }
     }
 }

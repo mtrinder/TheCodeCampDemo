@@ -8,13 +8,15 @@ namespace TheCodeCamp.Data
 {
     public class CampContext : DbContext
     {
-        public DbSet<Camp> Camps { get; set; }
-        public DbSet<Talk> Talks { get; set; }
-        public DbSet<Speaker> Speakers { get; set; }
+        public virtual DbSet<Camp> Camps { get; set; }
+        public virtual DbSet<Talk> Talks { get; set; }
+        public virtual DbSet<Speaker> Speakers { get; set; }
 
         public static readonly LoggerFactory MyConsoleLoggerFactory
             = new LoggerFactory(new[] { new ConsoleLoggerProvider((category, level)
                 => category == DbLoggerCategory.Database.Command.Name && level == LogLevel.Information, true) });
+
+        public CampContext() { }
 
         public CampContext(DbContextOptions<CampContext> options) : base(options)
         {

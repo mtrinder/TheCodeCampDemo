@@ -16,6 +16,10 @@ dotnet add package Microsoft.Extensions.Logging.Console
 dotnet add package Swashbuckle.AspNetCore
 dotnet restore
 
+dotnet add package Moq
+dotnet add package Microsoft.VisualStudio.UnitTesting
+dotnet add package NSubstitute
+
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 

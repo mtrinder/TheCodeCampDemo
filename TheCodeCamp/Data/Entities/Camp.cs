@@ -1,7 +1,6 @@
 ﻿
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 
 namespace TheCodeCamp.Data
 {
@@ -15,8 +14,8 @@ namespace TheCodeCamp.Data
         public int Length { get; set; } = 1;
 
         public int LocationId { get; set; }
-        public Location Location { get; set; }
+        public virtual Location Location { get; set; }
 
-        public ICollection<Talk> Talks { get; set; }
+        public virtual ICollection<Talk> Talks { get; set; }
     }
 }

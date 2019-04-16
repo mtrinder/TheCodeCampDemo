@@ -16,9 +16,6 @@ namespace TheCodeCamp.Data
         public string Twitter { get; set; }
         public string GitHub { get; set; }
 
-        //public int TalkId { get; set; }
-        //public Talk Talk { get; set; }
-
-        public ICollection<TalkSpeakers> TalkSpeakers { get; set; }
+        public virtual ICollection<TalkSpeakers> TalkSpeakers { get; set; }
     }
 }
